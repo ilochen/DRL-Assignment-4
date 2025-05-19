@@ -1,7 +1,6 @@
 import gymnasium as gym
 import numpy as np
 import torch
-import os
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.distributions import Normal
@@ -48,7 +47,7 @@ class Agent(object):
         self.obs_dim = 67  
         self.act_dim = 21
         self.actor = Actor(self.obs_dim, self.act_dim).to(device)
-        self.actor.load_state_dict(torch.load("./ppo_actor_q3.pth", map_location=device))
+        self.actor.load_state_dict(torch.load("./sac_actor_q3.pth", map_location=device))
         self.actor.eval()
 
 
